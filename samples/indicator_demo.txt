@@ -1,0 +1,3 @@
+Harmless static-analysis demonstration. This text is not a program.
+Vocabulary examples: powershell, downloadstring, currentversion\run,
+frombase64string. These words are deliberately included to trigger features.

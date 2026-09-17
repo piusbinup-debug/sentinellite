@@ -1,0 +1,25 @@
+{
+  "file": "indicator_demo.txt",
+  "bytes": 214,
+  "sha256": "71cc2ba6f7d109fceb338350efe762c4e881b729857b9b4e9b46baf064fb6ea6",
+  "entropy": 4.484,
+  "features": {
+    "executable_name": 0,
+    "double_extension": 0,
+    "mz_header": 0,
+    "high_entropy": 0,
+    "shell_marker": 1,
+    "download_marker": 1,
+    "persistence_marker": 1,
+    "encoding_marker": 1
+  },
+  "indicators": [
+    "shell_marker",
+    "download_marker",
+    "persistence_marker",
+    "encoding_marker"
+  ],
+  "model_score": 0.964867,
+  "risk": "HIGH - review required",
+  "warning": "Synthetic-trained score; not malware probability. No indicators does not mean safe."
+}

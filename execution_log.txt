@@ -1,0 +1,68 @@
+$ python scanner.py samples/notes.txt
+SENTINELLITE | STATIC FILE RISK REPORT
+file: notes.txt
+bytes: 38
+sha256: 62b9c2b0e9f76e1086ba88fd0a9683f306e7c732539b461887fbe4f91f5cdd5a
+entropy: 3.8656
+risk: LOW - not a safety guarantee
+Model score: 0.004564
+Indicators: none
+Synthetic-trained score; not malware probability. No indicators does not mean safe.
+Exit code: 0
+
+$ python scanner.py samples/indicator_demo.txt
+SENTINELLITE | STATIC FILE RISK REPORT
+file: indicator_demo.txt
+bytes: 214
+sha256: 71cc2ba6f7d109fceb338350efe762c4e881b729857b9b4e9b46baf064fb6ea6
+entropy: 4.484
+risk: HIGH - review required
+Model score: 0.964867
+Indicators: shell_marker, download_marker, persistence_marker, encoding_marker
+Synthetic-trained score; not malware probability. No indicators does not mean safe.
+Exit code: 0
+
+$ python scanner.py samples/indicator_demo.txt --json
+{
+  "file": "indicator_demo.txt",
+  "bytes": 214,
+  "sha256": "71cc2ba6f7d109fceb338350efe762c4e881b729857b9b4e9b46baf064fb6ea6",
+  "entropy": 4.484,
+  "features": {
+    "executable_name": 0,
+    "double_extension": 0,
+    "mz_header": 0,
+    "high_entropy": 0,
+    "shell_marker": 1,
+    "download_marker": 1,
+    "persistence_marker": 1,
+    "encoding_marker": 1
+  },
+  "indicators": [
+    "shell_marker",
+    "download_marker",
+    "persistence_marker",
+    "encoding_marker"
+  ],
+  "model_score": 0.964867,
+  "risk": "HIGH - review required",
+  "warning": "Synthetic-trained score; not malware probability. No indicators does not mean safe."
+}
+Exit code: 0
+
+$ python -m unittest -v
+test_entropy (test_scanner.ScannerTests.test_entropy) ... ok
+test_entropy_feature (test_scanner.ScannerTests.test_entropy_feature) ... ok
+test_extension (test_scanner.ScannerTests.test_extension) ... ok
+test_invalid_inputs (test_scanner.ScannerTests.test_invalid_inputs) ... ok
+test_markers (test_scanner.ScannerTests.test_markers) ... ok
+test_model_order (test_scanner.ScannerTests.test_model_order) ... ok
+test_scan_hash_and_preservation (test_scanner.ScannerTests.test_scan_hash_and_preservation) ... ok
+test_smoothing (test_scanner.ScannerTests.test_smoothing) ... ok
+test_thresholds (test_scanner.ScannerTests.test_thresholds) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.024s
+
+OK
+Exit code: 0
