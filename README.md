@@ -12,6 +12,11 @@ python scanner.py samples/indicator_demo.txt --json
 python -m unittest -v
 ```
 
+## One-click classroom demonstration
+
+On Windows, double-click `RUN_DEMO.bat`. It runs the tests and both harmless
+sample scans, pausing between stages so the presenter can explain each result.
+
 On Windows, use `py` if Python is installed through the Python launcher.
 
 The scanner reads files without executing or modifying them. Its synthetic-trained
